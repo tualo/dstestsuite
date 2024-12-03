@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "nemiah/php-fints": "*"
+        "tualo/ds": "*"
     },
     "minimum-stability": "dev",
     "autoload": {
