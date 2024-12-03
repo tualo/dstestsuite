@@ -169,7 +169,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
 
         
 
-        me.getController().forceSelection();
+        // me.getController().forceSelection();
 
 
         if (currentId=='myID'){
