@@ -1,4 +1,4 @@
 Ext.define('Tualo.DSTestSuite.Loader', {
     // needed to include this file
 });
-Ext.Loader.setPath('Tualo.dstestsuite', './jsdstestsuite');
+Ext.Loader.setPath('Tualo.DSTestSuite', './jsdstestsuite');
