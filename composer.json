@@ -1,0 +1,21 @@
+{
+    "name": "tualo/dstestsuite",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Hoffmann",
+            "email": "thomas.hoffmann@tualo.de"
+        }
+    ],
+    "require": {
+        "nemiah/php-fints": "*"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Tualo\\Office\\DSTestSuite\\": "src/"
+        },
+        "files": ["src/functions.php"]
+    }
+}
