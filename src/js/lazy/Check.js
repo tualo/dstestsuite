@@ -32,7 +32,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
     bbar: ['->',
            {
                itemId: 'card-prev',
-               text: '&laquo; Zurück',
+               text: '&laquo; Zur&uuml;ck',
                handler: 'showPrevious',
                disabled: true
            },
@@ -55,7 +55,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
                     xtype: 'component',
                     cls: 'lds-container-compact',
 
-                    html: '<i class="fa-solid fa-money-check-dollar"></i>'
+                    html: '<i class="fa-solid fa-file-code"></i>'
                         + '<div><h3>Test 1</h3>'
                         + '<span>Lipsum lorum</span></div>'
                 }
@@ -73,7 +73,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
                     xtype: 'component',
                     cls: 'lds-container-compact',
 
-                    html: '<i class="fa-solid fa-money-check-dollar"></i>'
+                    html: '<i class="fa-solid fa-file-code"></i>'
                         + '<div><h3>Test 1</h3>'
                         + '<span>Lipsum lorum</span></div>'
                 }
