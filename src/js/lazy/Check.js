@@ -46,6 +46,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
     items: [
         {
             xtype: 'panel',
+            itemId: 'chooseTable',
             layout: {
                 type: 'vbox',
                 align: 'center'
@@ -56,14 +57,60 @@ Ext.define('Tualo.DSTestSuite.Check', {
                     cls: 'lds-container-compact',
 
                     html: '<i class="fa-solid fa-file-code"></i>'
-                        + '<div><h3>Test 1</h3>'
-                        + '<span>Lipsum lorum</span></div>'
+                        + '<div><h3>Tabellenname</h3>'
+                        + '<span>Bitte den Tabellennamen angeben</span></div>'
+                },{
+
+                    xtype: 'textfield',
+                    fieldLabel: 'Name',
+                    bind:{
+                        value:'{tablename}'
+                    }
                 }
             ]
         },
 
         {
             xtype: 'panel',
+            itemId: 'checkExists',
+            layout: {
+                type: 'vbox',
+                align: 'center'
+            },
+            items: [
+                {
+                    xtype: 'component',
+                    cls: 'lds-container-compact',
+                    html: '<i class="fa-solid fa-file-code"></i>'
+                        + '<div><h3>Check Exists </h3>'
+                },
+                {
+                    xtype: 'dataview',
+                    minHeight:300,
+                    itemSelector: 'div.dataview-multisort-item',
+                    tpl: [
+                        '<table>',
+                        '<tpl for=".">',
+                            '<tr>',
+                                '<td><b>{ClassName}</b></td>',
+                                '<td>',
+                                '<i class="fa-regular fa-circle-check" aria-hidden="true" style="width:10px; height:10px; color:green; display:{[values.passed === true ? \'inline\':\'none\']}" ></i>',
+                                '<i class="fa-regular fa-circle-xmark" aria-hidden="true" style="width:10px; height:10px; color:red; display:{[values.passed === false ? \'inline\':\'none\']}"></i>',
+                                '</td>',
+                            '</tr>',                     
+                        '</tpl>',
+                        
+                    ],
+                    bind: {
+                        store:'{checkResult}'
+                    }
+                }
+            ]
+        },
+
+        {
+            xtype: 'panel',
+            itemId: 'checkCreate',
             layout: {
                 type: 'vbox',
                 align: 'center'
@@ -74,14 +121,36 @@ Ext.define('Tualo.DSTestSuite.Check', {
                     cls: 'lds-container-compact',
 
                     html: '<i class="fa-solid fa-file-code"></i>'
-                        + '<div><h3>Test 1</h3>'
-                        + '<span>Lipsum lorum</span></div>'
+                        + '<div><h3>Check Creations</h3>'
+                },
+                {
+                    xtype: 'dataview',
+                    minHeight:300,
+                    itemSelector: 'div.dataview-multisort-item',
+                    tpl: [
+                        '<table>',
+                        '<tpl for=".">',
+                            '<tr>',
+                                '<td><b>{ClassName}</b></td>',
+                                '<td>',
+                                '<i class="fa-regular fa-circle-check" aria-hidden="true" style="width:10px; height:10px; color:green; display:{[values.passed === true ? \'inline\':\'none\']}" ></i>',
+                                '<i class="fa-regular fa-circle-xmark" aria-hidden="true" style="width:10px; height:10px; color:red; display:{[values.passed === false ? \'inline\':\'none\']}"></i>',
+                                '</td>',
+                            '</tr>',                     
+                        '</tpl>',
+                        
+                    ],
+                    bind: {
+                        store:'{createResult}'
+                    }
                 }
             ]
         },
 
+
         {
             xtype: 'panel',
+            itemId: 'checkRenderer',
             layout: {
                 type: 'vbox',
                 align: 'center'
@@ -92,8 +161,28 @@ Ext.define('Tualo.DSTestSuite.Check', {
                     cls: 'lds-container-compact',
 
                     html: '<i class="fa-solid fa-money-check-dollar"></i>'
-                        + '<div><h3>Test 1</h3>'
-                        + '<span>Lipsum lorum</span></div>'
+                        + '<div><h3>CheckRenderer</h3>'
+                   },
+                {
+                    xtype: 'dataview',
+                    minHeight:300,
+                    itemSelector: 'div.dataview-multisort-item',
+                    tpl: [
+                        '<table>',
+                        '<tpl for=".">',
+                            '<tr>',
+                                '<td><b>{ClassName}</b></td>',
+                                '<td>',
+                                '<i class="fa-regular fa-circle-check" aria-hidden="true" style="width:10px; height:10px; color:green; display:{[values.passed === true ? \'inline\':\'none\']}" ></i>',
+                                '<i class="fa-regular fa-circle-xmark" aria-hidden="true" style="width:10px; height:10px; color:red; display:{[values.passed === false ? \'inline\':\'none\']}"></i>',
+                                '</td>',
+                            '</tr>',                     
+                        '</tpl>',
+                        
+                    ],
+                    bind: {
+                        store:'{rendererResult}'
+                    }
                 }
             ]
         },
@@ -159,7 +248,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
         id = l.activeItem.itemId || l.activeItem.getId();
         return me.items.indexMap[id];
     },
-    doCardNavigation: function(incr) {
+    doCardNavigation: async function(incr) {
         var me = this,
             l = me.getLayout(),
             currentId = l.activeItem.itemId;
@@ -172,17 +261,41 @@ Ext.define('Tualo.DSTestSuite.Check', {
         // me.getController().forceSelection();
 
 
-        if (currentId=='myID'){
+        if (currentId=='chooseTable'){
             // run my functions here
+            // types=me.getViewModel().get('types')
+            me.getController().checkExists(me.getViewModel().get('tablename'))
+            
+            // Creation
+            /* try {
+                Ext.create('Tualo.DataSets.list.' + tablenamecase)
+            }catch{
+                alert('Liste geht nicht!');
+            }*/
+
+            // Tualo.DataSets.form
+            // Tualo.DataSets.controller.
+            // Tualo.DataSets.viewmodel
+            // Tualo.DataSets.dsview
+
+
+            // alert('Tralala')
             me.next(next);
             return;
 
-        }else if (currentId=='myID2'){
+        }else if (currentId=='checkExists'){
+            me.getController().checkCreate(me.getViewModel().get('tablename'))
+            // run my other functions here
+            me.next(next);
+            return;
+        }else if (currentId=='checkRenderer'){
+            console.log('checkRenderer')
+            const test1 = await me.getController().checkRenderer(me.getViewModel().get('tablename'));
+            console.log('XXXXX ',test1)
             // run my other functions here
             me.next(next);
             return;
         }
-
         
         console.log(currentId,'next',next,'current',i)
         me.next(next);

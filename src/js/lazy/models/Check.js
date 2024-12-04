@@ -7,8 +7,10 @@ Ext.define('Tualo.DSTestSuite.models.Check', {
     ],
     */
     data:{
-        myVariable: ''
-
+        myVariable: '',
+        tablename:'mengeneinheiten',
+        basename: 'Tualo.DataSets',
+        types:['model','store','list','form','controller','viewmodel','dsview']
     },
     formulas: {
         formtext: function(get){
@@ -16,9 +18,27 @@ Ext.define('Tualo.DSTestSuite.models.Check', {
         }
     },
     stores: {
-        ds_class: {
-            type: 'ds_class_store',
-            autoLoad: true
+        checkResult: {
+            type: 'array',
+            fields: [
+                {name: 'ClassName', type: 'string'},
+                {name: 'passed', type: 'boolean'}
+            ],
+        },
+        createResult:{
+            type: 'array',
+            fields: [
+                {name: 'ClassName', type: 'string'},
+                {name: 'passed', type: 'boolean'}
+            ],
+        },
+        rendererResult:{
+            type: 'array',
+            fields: [
+                {name: 'ClassName', type: 'string'},
+                {name: 'passed', type: 'boolean'}
+            ],
         }
     }
+   
 });
