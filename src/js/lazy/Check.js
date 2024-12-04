@@ -2,6 +2,16 @@ Ext.define('Tualo.DSTestSuite.Check', {
 //    extend: 'Ext.form.Panel',
     extend: 'Ext.panel.Panel',
     alias: 'widget.dstestsuite_check',
+
+    initComponent: function() {
+        var me = this;
+        
+        me.callParent();
+        if (!Ext.isEmpty(me.config.table_name)){
+            me.getViewModel().set('tablename',me.config.table_name);
+        }
+    },
+
     listeners:{
       boxReady: 'onReady'
     },
