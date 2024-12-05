@@ -5,7 +5,6 @@ Ext.define('Tualo.DSTestSuite.Check', {
 
     initComponent: function() {
         var me = this;
-        console.log('Tualo.DSTestSuite.Check',arguments)
         me.callParent();
         if (!Ext.isEmpty(me.config.table_name)){
             me.getViewModel().set('tablename',me.config.table_name);
@@ -14,11 +13,8 @@ Ext.define('Tualo.DSTestSuite.Check', {
 
     initConfig: function(config) {
         var me = this;
-        console.log('Tualo.DSTestSuite.Check',arguments)
         me.callParent(config);
         if (!Ext.isEmpty(config.tablename)){
-            console.log('Tualo.DSTestSuite.Check>>>',config.tablename)
-            me.tablename = config.tablename;
             me.getViewModel().set('tablename',config.tablename);
         }
     },
