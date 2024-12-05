@@ -14,7 +14,7 @@ Ext.define('Tualo.routes.DSTestSuite',{
         action: function( values ){
             console.log('action');
             Ext.getApplication().addView('Tualo.DSTestSuite.Check',{
-                tablename: values
+                tablename: values.table_name
             });
         },
         before: function ( values, action) {
