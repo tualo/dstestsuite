@@ -302,13 +302,14 @@ Ext.define('Tualo.DSTestSuite.Check', {
 
         }else if (currentId=='checkExists'){
             me.getController().checkCreate(me.getViewModel().get('tablename'))
-            // run my other functions here
+            const test1 = await me.getController().checkRenderer(me.getViewModel().get('tablename'));
+            console.log('XXXXX ',test1)
+            
             me.next(next);
             return;
         }else if (currentId=='checkRenderer'){
             console.log('checkRenderer')
-            const test1 = await me.getController().checkRenderer(me.getViewModel().get('tablename'));
-            console.log('XXXXX ',test1)
+            //const test1 = await me.getController().checkRenderer(me.getViewModel().get('tablename'));
             // run my other functions here
             me.next(next);
             return;

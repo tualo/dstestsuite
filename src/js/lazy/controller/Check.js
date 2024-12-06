@@ -97,6 +97,8 @@ Ext.define('Tualo.DSTestSuite.controller.Check', {
                     }else{
                         data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' :'+name.summaryrenderer, passed:true} )
                     }
+                }else{
+                    data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' : No Renderer', passed:true} )
                 }
                 if (name.renderer != ""){
 
@@ -105,8 +107,9 @@ Ext.define('Tualo.DSTestSuite.controller.Check', {
                     }else{
                         data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' :'+name.renderer, passed:true} )
                     }
-
-                }   
+                }else{
+                    data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' : No SUM-Renderer', passed:true} )
+                }
             })
         }
         console.log(tablename, data)
