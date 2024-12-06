@@ -75,7 +75,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
 
                     html: '<i class="fa-solid fa-file-code"></i>'
                         + '<div><h3>Tabellenname</h3>'
-                        + '<span>Bitte den Tabellennamen angeben</span></div>'
+                        + '<span>Bitte den Tabellennamen angeben</span></div>',
                 },{
 
                     xtype: 'textfield',
@@ -176,29 +176,32 @@ Ext.define('Tualo.DSTestSuite.Check', {
                 {
                     xtype: 'component',
                     cls: 'lds-container-compact',
-
                     html: '<i class="fa-solid fa-money-check-dollar"></i>'
-                        + '<div><h3>CheckRenderer</h3>'
-                   },
+                        + '<div><h3>CheckRenderer</h3>',
+                },
                 {
                     xtype: 'dataview',
                     minHeight:300,
                     itemSelector: 'div.dataview-multisort-item',
                     tpl: [
                         '<table>',
+                        '<tr><td>Tabelle:Feld</td><td>Rend</td><td>Sum.</td></tr>',
                         '<tpl for=".">',
                             '<tr>',
                                 '<td><b>{ClassName}</b></td>',
                                 '<td>',
-                                '<i class="fa-regular fa-circle-check" aria-hidden="true" style="width:10px; height:10px; color:green; display:{[values.passed === true ? \'inline\':\'none\']}" ></i>',
-                                '<i class="fa-regular fa-circle-xmark" aria-hidden="true" style="width:10px; height:10px; color:red; display:{[values.passed === false ? \'inline\':\'none\']}"></i>',
+                                '<i class="fa-regular fa-circle-check" aria-hidden="true" style="width:10px; height:10px; color:green; display:{[values.rendpassed === true ? \'inline\':\'none\']}" ></i>',
+                                '<i class="fa-regular fa-circle-xmark" aria-hidden="true" style="width:10px; height:10px; color:red; display:{[values.rendpassed === false ? \'inline\':\'none\']}"></i>',
                                 '</td>',
+                                '<td>',
+                                '<i class="fa-regular fa-circle-check" aria-hidden="true" style="width:10px; height:10px; color:green; display:{[values.sumrendpassed === true ? \'inline\':\'none\']}" ></i>',
+                                '<i class="fa-regular fa-circle-xmark" aria-hidden="true" style="width:10px; height:10px; color:red; display:{[values.sumrendpassed === false ? \'inline\':\'none\']}"></i>',
+                                '</td>',                                
                             '</tr>',                     
                         '</tpl>',
-                        
                     ],
                     bind: {
-                        store:'{rendererResult}'
+                        store:'{rendererResult}',
                     }
                 }
             ]

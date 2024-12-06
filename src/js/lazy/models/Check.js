@@ -7,7 +7,6 @@ Ext.define('Tualo.DSTestSuite.models.Check', {
     ],
     */
     data:{
-        myVariable: '',
         tablename:'mengeneinheiten',
         basename: 'Tualo.DataSets',
         types:['model','store','list','form','controller','viewmodel','dsview']
@@ -36,9 +35,10 @@ Ext.define('Tualo.DSTestSuite.models.Check', {
             type: 'array',
             fields: [
                 {name: 'ClassName', type: 'string'},
-                {name: 'passed', type: 'boolean'}
+                {name: 'rendpassed', type: 'boolean'},
+                {name: 'sumrendpassed', type: 'boolean'}
             ],
-        }
+        },
     }
    
 });

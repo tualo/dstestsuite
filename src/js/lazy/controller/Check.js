@@ -90,30 +90,29 @@ Ext.define('Tualo.DSTestSuite.controller.Check', {
         console.log('contr: ', res.data);  
         if (res.data.length > 0){
             Ext.Array.each(res.data, function(name, index){
+                let sumrenderer = true,
+                    renderer =true,
+                    sumrendname='-',
+                    rendname='-';
                 console.log(name.renderer,name.summaryrenderer)
                 if (name.summaryrenderer != ""){
-                      if (typeof Ext.util.Format[name.summaryrenderer] !='function'){
-                        data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' :'+name.summaryrenderer, passed:false} )
-                    }else{
-                        data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' :'+name.summaryrenderer, passed:true} )
+                    if (typeof Ext.util.Format[name.summaryrenderer] !== 'function'){
+                        sumrenderer = false
                     }
-                }else{
-                    data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' : No Renderer', passed:true} )
+                    sumrendname = name.summaryrenderer
                 }
                 if (name.renderer != ""){
 
-                    if (typeof Ext.util.Format[name.renderer] !='function'){
-                        data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' :'+name.renderer, passed:false} )
-                    }else{
-                        data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' :'+name.renderer, passed:true} )
+                    if (typeof Ext.util.Format[name.renderer] !== 'function'){
+                       renderer = false
                     }
-                }else{
-                    data.push({ClassName: tablenamecase +': Spalte:'+name.column_name+' : No SUM-Renderer', passed:true} )
+                    rendname = name.renderer
                 }
+                data.push({ClassName: tablenamecase +':'+name.column_name+': '+rendname+'|'+sumrendname, rendpassed:renderer,sumrendpassed:sumrenderer})
             })
         }
         console.log(tablename, data)
-        store.add(data)   
+        store.add(data)
     }
 
 });
