@@ -94,7 +94,7 @@ Ext.define('Tualo.DSTestSuite.controller.Check', {
                     renderer =true,
                     sumrendname='-',
                     rendname='-';
-                console.log(name.renderer,name.summaryrenderer)
+                console.log(name.renderer+'xxxx',name.summaryrenderer)
                 if (name.summaryrenderer != ""){
                     if (typeof Ext.util.Format[name.summaryrenderer] !== 'function'){
                         sumrenderer = false

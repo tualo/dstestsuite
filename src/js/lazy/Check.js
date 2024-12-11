@@ -207,51 +207,7 @@ Ext.define('Tualo.DSTestSuite.Check', {
             ]
         },
 
-        {
-            xtype: 'panel',
-            layout: {
-                type: 'vbox',
-                align: 'center'
-            },
-            items: [
-                {
-                    xtype: 'component',
-                    cls: 'lds-container-compact',
-
-                    html: '<i class="fa-solid fa-money-check-dollar"></i>'
-                        + '<div><h3>Test 1</h3>'
-                        + '<span>Lipsum lorum</span></div>'
-                }
-            ]
-        },
-
-        {
-            xtype: 'panel',
-            layout: {
-                type: 'vbox',
-                align: 'center'
-            },
-            items: [
-                {
-                    xtype: 'component',
-                    cls: 'lds-container-compact',
-
-                    html: '<i class="fa-solid fa-money-check-dollar"></i>'
-                        + '<div><h3>Test 1</h3>'
-                        + '<span>Lipsum lorum</span></div>'
-                }
-            ]
-        },
-
         
-        {
-            id: 'card-1',
-            html: '<p>Step 2 of 3</p><p>Almost there.  Please click the "Next" button to continue...</p>'
-        },
-        {
-            id: 'card-2',
-            html: '<h1>Congratulations!</h1><p>Step 3 of 3 - Complete</p>'
-        }
     ],
 
     showNext: function() {
