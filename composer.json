@@ -1,21 +1,24 @@
 {
-    "name": "tualo/dstestsuite",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Thomas Hoffmann",
-            "email": "thomas.hoffmann@tualo.de"
-        }
-    ],
-    "require": {
-        "tualo/ds": "*"
-    },
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "Tualo\\Office\\DSTestSuite\\": "src/"
-        },
-        "files": ["src/functions.php"]
+  "name": "tualo/dstestsuite",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Hoffmann",
+      "email": "thomas.hoffmann@tualo.de"
     }
+  ],
+  "require": {
+    "tualo/ds": "^1.0.6"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Tualo\\Office\\DSTestSuite\\": "src/"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "version": "1.0.1"
 }
