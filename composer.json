@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "tualo/ds": "^1.0.6"
+    "tualo/ds": "^1.0"
   },
   "minimum-stability": "dev",
   "autoload": {
